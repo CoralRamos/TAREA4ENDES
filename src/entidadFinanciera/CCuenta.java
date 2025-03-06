@@ -5,7 +5,9 @@
 
 package entidadFinanciera;
 
-
+/**
+ * Clase creando la cuenta bancaria
+ */
 public class CCuenta {
 
     /**
@@ -68,14 +70,33 @@ public class CCuenta {
      * Nombre de la persona titular
      */
     private String nombre;
+    /**
+     * Número de cuenta
+     */
     private String cuenta;
+    /**
+     * Saldo de la cuenta
+     */
     private double saldo;
+    /**
+     * Tipo de interés
+     */
     private double tipoInterés;
 
+    /**
+     * Constructor sin valor
+     */
     public CCuenta()
     {
     }
 
+    /**
+     * Constructor con valores de los atributos
+     * @param nom
+     * @param cue
+     * @param sal
+     * @param tipo
+     */
     public CCuenta(String nom, String cue, double sal, double tipo)
     {
         nombre =nom;
@@ -83,10 +104,19 @@ public class CCuenta {
         saldo=sal;
     }
     
+    /**
+     * Método que te muestra el saldo
+     * @return devolviendo saldo
+     */
     public double estado(){
         return this.getSaldo();
     }
 
+    /**
+     * Método de ingreso con excepción
+     * @param cantidad pide cantidad a ingresar
+     * @throws Exception si la cantidad es negativa
+     */
     public void ingresar(double cantidad) throws Exception
     {
         if (cantidad<0)
@@ -94,6 +124,11 @@ public class CCuenta {
         setSaldo(getSaldo() + cantidad);
     }
 
+    /**
+     * Método de retirada
+     * @param cantidad pide cantidad a retirar
+     * @throws Exception si la cantidad es igual o menor que 0
+     */
     public void retirar(double cantidad) throws Exception
     {
         if (cantidad <= 0)
